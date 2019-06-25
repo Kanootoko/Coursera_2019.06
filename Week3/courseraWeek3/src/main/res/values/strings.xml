@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Coursera Week 3</string>
+    <string name="hello_text">Hello World</string>
+    <string name="button_string">Tap on me</string>
+    <string name="input_text_string">Input for toast</string>
+    <string name="second_button_string">Google search button</string>
+</resources>
