@@ -4,8 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 public class SharedPreferencesHelper {
-    public static String FILENAME = "SHARED_PREFERENCES";
-
+    private static String FILENAME = "SHARED_PREFERENCES";
     private static String SEARCH_SYSTEM_KEY = "SEACH_SYSTEM_KEY";
 
     private SharedPreferences mPrefs;

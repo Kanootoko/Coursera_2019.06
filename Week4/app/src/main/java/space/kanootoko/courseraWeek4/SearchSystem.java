@@ -4,7 +4,7 @@ public class SearchSystem {
 
     private enum SSystem {google, bing, yandex}
 
-    private SSystem mSystem = SSystem.google;
+    private SSystem mSystem;
 
     public SearchSystem(String name) {
         switch (name.toLowerCase()) {
@@ -27,7 +27,7 @@ public class SearchSystem {
             case google:
                 return String.format("https://google.com/search?q=%s", text);
             case bing:
-                return String.format("https://bing.com/q=%s", text);
+                return String.format("https://bing.com/search?q=%s", text);
             case yandex:
                 return String.format("https://yandex.ru/search?text=%s", text);
             default:
