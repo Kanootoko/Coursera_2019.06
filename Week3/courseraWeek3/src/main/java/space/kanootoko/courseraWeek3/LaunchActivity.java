@@ -18,12 +18,13 @@ public class LaunchActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             String text = (mText.getText().toString());
-            if (!text.isEmpty())
+            if (!text.isEmpty()) {
                 Toast.makeText(LaunchActivity.this, text, Toast.LENGTH_LONG).show();
 
-            Intent secondActivityIntent = new Intent(LaunchActivity.this, SecondActivity.class);
-            secondActivityIntent.putExtra(SecondActivity.TEXT_KEY, mText.getText().toString());
-            startActivity(secondActivityIntent);
+                Intent secondActivityIntent = new Intent(LaunchActivity.this, SecondActivity.class);
+                secondActivityIntent.putExtra(SecondActivity.TEXT_KEY, mText.getText().toString());
+                startActivity(secondActivityIntent);
+            }
         }
     };
 
