@@ -38,9 +38,11 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.search_option:
                 Toast.makeText(MainActivity.this, "Search is pressed", Toast.LENGTH_SHORT).show();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SearchFragment()).addToBackStack(SearchFragment.class.getName()).commit();
                 break;
             case R.id.quit_option:
                 Toast.makeText(MainActivity.this, "Quit is pressed", Toast.LENGTH_SHORT).show();
+                finish();
                 break;
             default:
                 break;
