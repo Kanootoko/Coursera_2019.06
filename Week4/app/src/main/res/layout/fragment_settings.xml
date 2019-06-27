@@ -1,31 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingsFragment">
+    tools:context=".SettingsFragment"
+    android:orientation="vertical"
+    android:layout_centerHorizontal="true">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/settings_fragment_string"
+        android:textSize="40sp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/search_system_string"/>
+        android:text="@string/search_system_string"
+        android:paddingTop="20dp"
+        android:paddingStart="20dp"
+        tools:ignore="RtlSymmetry"/>
 
     <RadioGroup
         android:id="@+id/settings_radio_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Google"/>
+            android:text="Google"
+            android:id="@+id/radio_google"/>
+
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Bing"/>
+            android:text="Bing"
+            android:id="@+id/radio_bind"/>
+
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Yandex"/>
+            android:text="Yandex"
+            android:id="@+id/radio_yandex"/>
     </RadioGroup>
-</FrameLayout>
+</LinearLayout>
