@@ -1,7 +1,5 @@
 package space.kanootoko.courseraWeek4;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
