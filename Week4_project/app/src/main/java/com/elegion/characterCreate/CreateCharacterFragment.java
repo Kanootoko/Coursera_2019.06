@@ -58,6 +58,7 @@ public class CreateCharacterFragment extends Fragment implements Observer {
         super.onAttach(context);
         mCallback = context instanceof Callback ? ((Callback) context) : null;
     }
+    
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

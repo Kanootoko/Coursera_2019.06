@@ -31,6 +31,24 @@ public class CharacterCreator extends Observable  implements Serializable{
     private Map<String, Integer> mAttributesMap = new HashMap<>();
     private Map<String, Boolean> mPerksMap = new HashMap<>();
 
+    private static String[] getNamesFromEnum(Class<? extends Enum> in) {
+        String[] res = new String[in.getEnumConstants().length];
+        int i = 0;
+        for (Enum a : in.getEnumConstants()) {
+            String tmp = a.toString();
+            res[i++] = tmp.substring(0, 1).toUpperCase() + tmp.substring(1).toLowerCase();
+        }
+        return res;
+    }
+
+    private static int setBetween(int value, int min, int max) {
+        if (value < min)
+            value = min;
+        else if (value >= max)
+            value = max - 1;
+        return value;
+    }
+
 
     public CharacterCreator() {
         mRace = Race.HUMAN;
@@ -43,16 +61,6 @@ public class CharacterCreator extends Observable  implements Serializable{
         mAttributesMap.put(Attribute.LUCK.name(), 5);
     }
 
-    private static String[] getNamesFromEnum(Class<? extends Enum> in) {
-        String[] res = new String[in.getEnumConstants().length];
-        int i = 0;
-        for (Enum a : in.getEnumConstants()) {
-            String tmp = a.toString();
-            res[i++] = tmp.substring(0, 1).toUpperCase() + tmp.substring(1).toLowerCase();
-        }
-        return res;
-    }
-
     public String[] getSpecializations() {
         return CharacterCreator.getNamesFromEnum(Specialization.class);
 
@@ -61,10 +69,7 @@ public class CharacterCreator extends Observable  implements Serializable{
 
     public void setSpecialization(int position) {
         Specialization[] specs = Specialization.values();
-        if (position < 0)
-            position = 0;
-        else if (position > specs.length)
-            position = specs.length - 1;
+        position = setBetween(position, 0, specs.length);
         mSpecialization = specs[position];
 
     }
@@ -75,10 +80,7 @@ public class CharacterCreator extends Observable  implements Serializable{
 
     public void setRace(int position) {
         Race[] races = Race.values();
-        if (position < 0)
-            position = 0;
-        else if (position > races.length)
-            position = races.length - 1;
+        position = setBetween(position, 0, races.length);
         mRace = races[position];
     }
 
@@ -93,10 +95,7 @@ public class CharacterCreator extends Observable  implements Serializable{
     }
     public void updateAttributeValue(int position, int updateTo) {
         Attribute[] attrs = Attribute.values();
-        if (position < 0)
-            position = 0;
-        else if (position > attrs.length)
-            position = attrs.length - 1;
+        position = setBetween(position, 0, attrs.length);
         int value = mAttributesMap.get(attrs[position].name());
         if ((mAvailablePoints >= updateTo) && (value + updateTo >= 0)){
             value += updateTo;
